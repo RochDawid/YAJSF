@@ -1,0 +1,18 @@
+{
+  "name": "yajsf",
+  "version": "1.0.0",
+  "description": "Yet Another JavaScript Framework",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Dawid Roch",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "parcel": "^2.5.0"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.17.3"
+  }
+}
