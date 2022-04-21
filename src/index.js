@@ -6,20 +6,27 @@ function yajsf(element, props, ...child) {
 }
 
 function render(node) {
-  const element = document.createElement(node.element);
-  if (node.props) {
-    Object.keys(node.props).forEach((key) => {
-      element.setAttribute(key, node.props[key]);
+  let element = {};
+
+  if (typeof node.element === "function") {
+    // TODO: implement functional components functionality
+  } else {
+    element = document.createElement(node.element);
+    if (node.props) {
+      Object.keys(node.props).forEach((key) => {
+        element.setAttribute(key, node.props[key]);
+      });
+    }
+    node.children.forEach((child, i) => {
+      if (typeof child === "string") {
+        const text = document.createTextNode(child);
+        element.appendChild(text);
+      } else {
+        element.appendChild(render(child));
+      }
     });
   }
-  node.children.forEach((child, i) => {
-    if (typeof child === "string") {
-      const text = document.createTextNode(child);
-      element.appendChild(text);
-    } else {
-      element.appendChild(render(child));
-    }
-  });
+
   return element;
 }
 
